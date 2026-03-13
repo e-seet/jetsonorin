@@ -32,7 +32,7 @@ def train_model(model_name, dataset_yaml, epochs=80, batch_size=-1, imgsz=512):
         epochs=epochs,
         batch=batch_size,
         imgsz=imgsz,
-        device=0,         # Use GPU 0
+        device=CPU,         # Use GPU 0
         workers=1,        # 0 workers prevents multiprocessing memory duplication leading to segfaults
         cache=False,      # Do not cache images to RAM
         overlap_mask=False, # Save memory during mask processing (mostly for segmentation, but good for stability)
