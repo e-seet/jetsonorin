@@ -1,0 +1,6 @@
+path: datasets/fire_smoke
+train: images/train
+val: images/val
+# (optional)
+test: images/test
+# keep the original "names" from the dataset or define them here
