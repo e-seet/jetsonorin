@@ -1,0 +1,8 @@
+datasets/
+fire_detection_runs/
+fire_smoke/
+*.pt
+*.engine
+*.log
+.env
+__pycache__/
