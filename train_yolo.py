@@ -36,7 +36,7 @@ def train_model(
     model = YOLO(base_model)
     
     # Train the model
-    # On Jetson, keep workers low; on Colab L4 you can safely increase.
+    # Optimized settings for L4 GPU vs Jetson
     results = model.train(
         data=dataset_yaml,
         epochs=epochs,
@@ -47,7 +47,7 @@ def train_model(
         mosaic=0.5,
         mixup=0.15,
         close_mosaic=10,   # Disable mosaic at the end to save a heavy augmentation step
-        amp=False,        # Disable automatic mixed precision
+        amp=device.startswith("cuda"),  # Enable AMP for GPU, disable for CPU
         plots=False,      # 🚀 prevents matplotlib loading
         project="fire_detection_runs_v2",
         name=f"{model_name}_fire",
